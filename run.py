@@ -16,4 +16,11 @@ student_info = SHEET.worksheet('student_info')
 
 enrolled_stud = student_info.get_all_values()
 
-print(enrolled_stud)
+welcome_message = """Welcome to My Enrolment Pal, your digital aid for data management.\n
+What would you like to do today?
+1. Please enter "i" to check a student's complete info.
+2. Please enter "a" to add a new student to your database.
+3. Please enter "c" to calculate the number of students for each study path.
+"""
+print(welcome_message)
+
