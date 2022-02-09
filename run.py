@@ -33,4 +33,11 @@ def input_handler():
     print(user_input)
 
 
-input_handler()
+def main():
+    """
+    Run all program functions
+    """
+    input_handler()
+
+
+main()
