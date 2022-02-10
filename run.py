@@ -16,21 +16,29 @@ student_info = SHEET.worksheet('student_info')
 
 enrolled_stud = student_info.get_all_values()
 
-welcome_message = """Welcome to My Enrolment Pal, your digital aid for data management.\n
-What would you like to do today?
-1. Enter "i" to check a student's complete info.
-2. Enter "a" to add a new student to your database.
-3. Enter "c" to calculate the number of students for each study path.
-"""
-print(welcome_message)
+print("Welcome to My Enrolment Pal, your digital aid for student data management.\n")
+menu = """ What would you like to do today?
+    1. Enter 1 to check an individual student's complete info.
+    2. Enter 2 to add a new student to your database.
+    3. Enter 3 to calculate the number of students for each study path.
+    """
+print(menu)
 
 
 def input_handler():
     """
     Handles user input
     """
-    user_input = input("Please enter your choice here: ")
-    print(user_input)
+    
+    while True:
+        try:
+            user_input = int(input("Please enter your choice here: "))
+            if user_input > 0 and user_input < 4:
+                print(user_input)
+            else:
+                print("Sorry, you can only enter values from 1 to 3. Please try again.")
+        except ValueError:
+            print("Oops... that doesn't look like a number. Try again.")
 
 
 def main():
