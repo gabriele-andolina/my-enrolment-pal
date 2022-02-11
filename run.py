@@ -52,6 +52,16 @@ def get_student_data():
     print("The student name must be formatted in this way: 'John Smith'.")
     print("Please enter only first and last name separated by a blank space.")
     stud_name = input("Please enter the student's name here: ")
+    try:
+        for char in stud_name:
+            if char.isalpha() or char.isspace():
+                retrieve_data()
+    except ValueError:
+        print("Sorry, invalid data. Try again.")
+
+
+def retrieve_data():
+    print("Valid data. Now we can move on.")
 
 
 def main():
