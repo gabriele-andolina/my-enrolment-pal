@@ -40,10 +40,10 @@ def input_handler():
             print("Oops... that doesn't look like a number. Try again.")
 
         if user_input == 1:
-            get_student_data()
+            input_name()
 
 
-def get_student_data():
+def input_name():
     """
     Matches user input with name values in the spreadsheet.
     Returns full data for chosen student.
@@ -69,7 +69,7 @@ def main():
     Run all program functions
     """
     input_handler()
-    get_student_data()
+    input_name()
 
 
 main()
