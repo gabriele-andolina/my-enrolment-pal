@@ -41,6 +41,7 @@ def input_handler():
 
         if user_input == 1:
             input_name()
+        break
 
 
 def input_name():
@@ -48,20 +49,26 @@ def input_name():
     Matches user input with name values in the spreadsheet.
     Returns full data for chosen student.
     """
-    print("Very well! You can check your students data below.")
-    print("The student name must be formatted in this way: 'John Smith'.")
-    print("Please enter only first and last name separated by a blank space.")
+    print("You can check your students data here.")
+    print("Student names must be formatted as follows: 'John Smith'.")
+    print("Enter first and last name separated by a blank space.\n")
     stud_name = input("Please enter the student's name here:\n")
     try:
         for char in stud_name:
             if char.isalpha() or char.isspace():
-                retrieve_data()
+                pass
     except ValueError:
         print("Sorry, invalid data. Try again.")
+    # Except currently not working. Needs fixing.
 
-
-def retrieve_data():
-    print("Valid data. Now we can move on.")
+    all_names = student_info.col_values(1)
+    checked_stud = [name for name in all_names if name == stud_name]
+    if checked_stud:
+        print(f"Yes, {stud_name} is one of your students!")
+    elif not checked_stud:
+        print(f"Sorry, {stud_name} is currently not enroled.")
+    # It finds the proper name in the spreadsheet and prints it out.
+    # But: after printing the name it goes back to "You can check..."
 
 
 def main():
