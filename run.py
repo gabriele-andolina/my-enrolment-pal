@@ -16,7 +16,7 @@ student_info = SHEET.worksheet('student_info')
 
 enrolled_stud = student_info.get_all_values()
 
-print("Welcome to My Enrolment Pal, your digital aid for student data management.\n")
+print("Welcome to My Enrolment Pal, your school data management system.\n")
 menu = """ What would you like to do today?
     1. Enter 1 to check an individual student's complete info.
     2. Enter 2 to add a new student to your database.
@@ -29,16 +29,29 @@ def input_handler():
     """
     Handles user input
     """
-    
     while True:
         try:
             user_input = int(input("Please enter your choice here: "))
             if user_input > 0 and user_input < 4:
-                print(user_input)
+                pass
             else:
-                print("Sorry, you can only enter values from 1 to 3. Please try again.")
+                print("You can only enter values from 1 to 3. Try again.")
         except ValueError:
             print("Oops... that doesn't look like a number. Try again.")
+
+        if user_input == 1:
+            get_student_data()
+
+
+def get_student_data():
+    """
+    Matches user input with name values in the spreadsheet.
+    Returns full data for chosen student.
+    """
+    print("Very well! You can check your students data below.")
+    print("The student name must be formatted in this way: 'John Smith'.")
+    print("Please enter only first and last name separated by a blank space.")
+    stud_name = input("Please enter the student's name here: ")
 
 
 def main():
@@ -46,6 +59,7 @@ def main():
     Run all program functions
     """
     input_handler()
+    get_student_data()
 
 
 main()
