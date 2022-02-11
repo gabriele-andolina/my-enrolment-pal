@@ -31,7 +31,7 @@ def input_handler():
     """
     while True:
         try:
-            user_input = int(input("Please enter your choice here: "))
+            user_input = int(input("Please enter your choice here:\n"))
             if user_input > 0 and user_input < 4:
                 pass
             else:
@@ -51,7 +51,7 @@ def get_student_data():
     print("Very well! You can check your students data below.")
     print("The student name must be formatted in this way: 'John Smith'.")
     print("Please enter only first and last name separated by a blank space.")
-    stud_name = input("Please enter the student's name here: ")
+    stud_name = input("Please enter the student's name here:\n")
     try:
         for char in stud_name:
             if char.isalpha() or char.isspace():
