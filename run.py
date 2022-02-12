@@ -48,6 +48,8 @@ def input_handler():
 
         if user_input == 1:
             input_name()
+        elif user_input == 2:
+            add_student()
 
 
 def input_name():
@@ -80,6 +82,22 @@ def input_name():
     # But: after printing the name it goes back to "You can check..."
 
 
+def add_student():
+    """
+    Allows user to enter new student data.
+    Updates the spreadsheet by populating a new row.
+    """
+    print("You can ADD your new student's data here.")
+    print("Please enter the data separated by commas as follows:")
+    print("Name,Age,Country,Preferred Language,Proficiency Level,Main Goal\n")
+
+    new_data = input("Enter the student's info here:\n").split(",")
+    student_info.append_row(new_data)
+    print(f"You have entered {new_data}. Well done!")
+    print_welcome_msg()
+    input_handler()
+
+
 def main():
     """
     Run all program functions
@@ -87,6 +105,7 @@ def main():
     print_welcome_msg()
     input_handler()
     input_name()
+    add_student()
 
 
 main()
