@@ -16,13 +16,20 @@ student_info = SHEET.worksheet('student_info')
 
 enrolled_stud = student_info.get_all_values()
 
-print("Welcome to My Enrolment Pal, your school data management system.\n")
-menu = """ What would you like to do today?
-    1. Enter 1 to check an individual student's complete info.
-    2. Enter 2 to add a new student to your database.
-    3. Enter 3 to calculate the number of students for each study path.
+
+def print_welcome_msg():
     """
-print(menu)
+    Prints a welcome message to the terminal.
+    Used to restart the program after each task.
+    """
+    print("\n")
+    print("Welcome to My Enrolment Pal, your school data management system.\n")
+    menu = """ What would you like to do today?
+    1. Enter 1 to CHECK an individual student's complete info.
+    2. Enter 2 to ADD a new student to your database.
+    3. Enter 3 to CALCULATE the number of students for each study path.
+    """
+    print(menu)
 
 
 def input_handler():
@@ -41,7 +48,6 @@ def input_handler():
 
         if user_input == 1:
             input_name()
-        break
 
 
 def input_name():
@@ -49,7 +55,7 @@ def input_name():
     Matches user input with name values in the spreadsheet.
     Returns full data for chosen student.
     """
-    print("You can check your students data here.")
+    print("You can CHECK your students data here.")
     print("Student names must be formatted as follows: 'John Smith'.")
     print("Enter first and last name separated by a blank space.\n")
     stud_name = input("Please enter the student's name here:\n")
@@ -67,6 +73,9 @@ def input_name():
         print(f"Yes, {stud_name} is one of your students!")
     elif not checked_stud:
         print(f"Sorry, {stud_name} is currently not enroled.")
+    
+    print_welcome_msg()
+    input_handler()
     # It finds the proper name in the spreadsheet and prints it out.
     # But: after printing the name it goes back to "You can check..."
 
@@ -75,6 +84,7 @@ def main():
     """
     Run all program functions
     """
+    print_welcome_msg()
     input_handler()
     input_name()
 
