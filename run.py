@@ -64,7 +64,8 @@ def input_name():
     while True:
         stud_name = input("Please enter the student's name here:\n")
         if name_validator(stud_name):
-            print("Correct input!")
+            print(f"Correct input! Checking {stud_name}'s status now...")
+            check_student(stud_name)
         else:
             print("Incorrect input. Student names must be formatted as follows: 'John Smith'.")
 
@@ -79,6 +80,19 @@ def name_validator(name):
         if not char.isalpha() and not char.isspace():
             result = False
     return result
+
+
+def check_student(stud_name):
+    """
+    Runs a loop through the students' name in the spreadsheet.
+    Informs the user about the enrolment status of the checked student.
+    """
+    all_names = student_info.col_values(1)
+    checked_stud = [name for name in all_names if name == stud_name]
+    if checked_stud:
+        print(f"Yes, {stud_name} is one of your students!")
+    elif not checked_stud:
+        print(f"Sorry, {stud_name} is currently not enroled.")
 
 
 def add_student():
