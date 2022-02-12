@@ -60,26 +60,25 @@ def input_name():
     print("You can CHECK your students data here.")
     print("Student names must be formatted as follows: 'John Smith'.")
     print("Enter first and last name separated by a blank space.\n")
-    stud_name = input("Please enter the student's name here:\n")
-    try:
-        for char in stud_name:
-            if char.isalpha() or char.isspace():
-                pass
-    except ValueError:
-        print("Sorry, invalid data. Try again.")
-    # Except currently not working. Needs fixing.
 
-    all_names = student_info.col_values(1)
-    checked_stud = [name for name in all_names if name == stud_name]
-    if checked_stud:
-        print(f"Yes, {stud_name} is one of your students!")
-    elif not checked_stud:
-        print(f"Sorry, {stud_name} is currently not enroled.")
-    
-    print_welcome_msg()
-    input_handler()
-    # It finds the proper name in the spreadsheet and prints it out.
-    # But: after printing the name it goes back to "You can check..."
+    while True:
+        stud_name = input("Please enter the student's name here:\n")
+        if name_validator(stud_name):
+            print("Correct input!")
+        else:
+            print("Incorrect input. Student names must be formatted as follows: 'John Smith'.")
+
+
+def name_validator(name):
+    """
+    Checks the validity of the user input.
+    Returns a message to provide the user with relevant feedback.
+    """
+    result = True
+    for char in name:
+        if not char.isalpha() and not char.isspace():
+            result = False
+    return result
 
 
 def add_student():
