@@ -151,10 +151,13 @@ def curriculum_calculator():
         elif curriculum == "Art & Literature":
             art_lit_curr += 1
     
-    print(business_curr)
-    print(citizenship_curr)
-    print(art_lit_curr)
-
+    while True:
+        if queried_curr == "Business":
+            print(f"The number of students for the {queried_curr} curriculum is {business_curr}.")
+        elif queried_curr == "Citizenship":
+            print(f"The number of students for the {queried_curr} curriculum is {citizenship_curr}.")
+        elif queried_curr == "Art & Literature":
+            print(f"The number of students for the {queried_curr} curriculum is {art_lit_curr}.") 
 
 
 def main():
