@@ -1,5 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
+import sys
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -54,6 +55,40 @@ def input_handler():
             curriculum_calculator()
 
 
+def next_step():
+    """
+    Used to move on to the next step as desired by the user.
+    Depending on the user's input, it restarts the application or prints a closing message."
+    """
+    next_menu = """ What would you like to do next?
+    1. Enter 1 to CHECK an individual student's complete info.
+    2. Enter 2 to ADD a new student to your database.
+    3. Enter 3 to CALCULATE the number of students for each study path.
+    4. Enter 4 to CLOSE the program.
+    """
+    print(next_menu)
+
+    while True:
+        try:
+            user_input = int(input("Please enter your choice here:\n"))
+            if user_input > 0 and user_input < 5:
+                pass
+            else:
+                print("You can only enter values from 1 to 4. Try again.\n")
+        except ValueError:
+            print("You can only enter values from 1 to 4. Try again.\n")
+
+        if user_input == 1:
+            input_name()
+        elif user_input == 2:
+            add_student()
+        elif user_input == 3:
+            curriculum_calculator()
+        elif user_input == 4:
+            print("That's it for today. Thank you for using My Enrolment Pal!")
+            sys.exit()
+
+
 def input_name():
     """
     Matches user input with name values in the spreadsheet.
@@ -68,10 +103,11 @@ def input_name():
         if name_validator(stud_name):
             print(f"Correct input! Checking {stud_name}'s status now...\n")
             check_student(stud_name)
+            
         else:
             print("Incorrect input. Student names must be formatted as follows: 'John Smith'.\n")
 
-
+    
 def name_validator(name):
     """
     Checks the validity of the user input.
@@ -170,6 +206,7 @@ def main():
     add_student()
     new_info_validator()
     curriculum_calculator()
+    next_step()
 
 
 main()
