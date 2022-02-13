@@ -1,6 +1,6 @@
+import sys
 import gspread
 from google.oauth2.service_account import Credentials
-import sys
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -21,7 +21,7 @@ enrolled_stud = student_info.get_all_values()
 def print_welcome_msg():
     """
     Prints a welcome message to the terminal.
-    Used to restart the program after each task.
+    Starts the program and shows app menu.
     """
     print("\n")
     print("Welcome to My Enrolment Pal, your school data management system.\n")
@@ -91,8 +91,8 @@ def next_step():
 
 def input_name():
     """
-    Matches user input with name values in the spreadsheet.
-    Returns full data for chosen student.
+    Receives user input in the form of a student's name.
+    Offers feedback as to the validity of the input.
     """
     print("You can CHECK your students data here.")
     print("Student names must be formatted as follows: 'John Smith'.")
@@ -107,7 +107,7 @@ def input_name():
         else:
             print("Incorrect input. Student names must be formatted as follows: 'John Smith'.\n")
 
-    
+
 def name_validator(name):
     """
     Checks the validity of the user input.
@@ -128,9 +128,15 @@ def check_student(stud_name):
     all_names = student_info.col_values(1)
     checked_stud = [name for name in all_names if name == stud_name]
     if checked_stud:
-        print(f"Yes, {stud_name} is one of your students!\n")
+        print(f"Yes, {stud_name} is one of your students!")
     elif not checked_stud:
         print(f"Sorry, {stud_name} is currently not enroled.\n")
+        next_step()
+
+    stud_name_cell = student_info.find(stud_name)
+    complete_stud_info = student_info.row_values(stud_name_cell.row)
+    print(f"And here is {stud_name}'s complete info: {complete_stud_info}")
+    print("The above values are: Full Name, Age, Country, Preferred Language, Proficiency Level, Main Goal\n")
 
 
 def add_student():
@@ -143,7 +149,6 @@ def add_student():
     print("The 'Preferred Language' can be English or French.")
     print("Valid 'Proficiency Level' values are: A1, A2, B1, B2, C1, C2.")
     print("The 'Main Goal' can be chosen among 'Business', 'Citizenship' and 'Art & Literature'.\n")
-    
     while True:
         new_data = input("Enter the student's info here:\n").split(",")
         if new_info_validator(new_data):
@@ -174,10 +179,9 @@ def curriculum_calculator():
     print("You can CALCULATE the number of students for each curriculum here.")
     print("Please enter one of the following: Business, Citizenship, Art & Literature")
     queried_curr = input("Please enter the chosen curriculum here:\n").capitalize()
-    
     all_curriculum = student_info.col_values(6)
     business_curr = 0
-    citizenship_curr = 0 
+    citizenship_curr = 0
     art_lit_curr = 0
 
     for curriculum in all_curriculum:
@@ -187,7 +191,6 @@ def curriculum_calculator():
             citizenship_curr += 1
         elif curriculum == "Art & Literature":
             art_lit_curr += 1
-    
     while True:
         if queried_curr == "Business":
             print(f"The number of students for the {queried_curr} curriculum is {business_curr}.")
@@ -197,7 +200,7 @@ def curriculum_calculator():
             next_step()
         elif queried_curr == "Art & Literature":
             print(f"The number of students for the {queried_curr} curriculum is {art_lit_curr}.")
-            next_step() 
+            next_step()
 
 
 def main():
