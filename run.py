@@ -42,14 +42,16 @@ def input_handler():
             if user_input > 0 and user_input < 4:
                 pass
             else:
-                print("You can only enter values from 1 to 3. Try again.")
+                print("You can only enter values from 1 to 3. Try again.\n")
         except ValueError:
-            print("Oops... that doesn't look like a number. Try again.")
+            print("You can only enter values from 1 to 3. Try again.\n")
 
         if user_input == 1:
             input_name()
         elif user_input == 2:
             add_student()
+        elif user_input == 3:
+            curriculum_calculator()
 
 
 def input_name():
@@ -64,10 +66,10 @@ def input_name():
     while True:
         stud_name = input("Please enter the student's name here:\n")
         if name_validator(stud_name):
-            print(f"Correct input! Checking {stud_name}'s status now...")
+            print(f"Correct input! Checking {stud_name}'s status now...\n")
             check_student(stud_name)
         else:
-            print("Incorrect input. Student names must be formatted as follows: 'John Smith'.")
+            print("Incorrect input. Student names must be formatted as follows: 'John Smith'.\n")
 
 
 def name_validator(name):
@@ -90,9 +92,9 @@ def check_student(stud_name):
     all_names = student_info.col_values(1)
     checked_stud = [name for name in all_names if name == stud_name]
     if checked_stud:
-        print(f"Yes, {stud_name} is one of your students!")
+        print(f"Yes, {stud_name} is one of your students!\n")
     elif not checked_stud:
-        print(f"Sorry, {stud_name} is currently not enroled.")
+        print(f"Sorry, {stud_name} is currently not enroled.\n")
 
 
 def add_student():
@@ -101,7 +103,10 @@ def add_student():
     """
     print("You can ADD your new student's data here.")
     print("Please enter the data separated by commas as follows:")
-    print("Name,Age,Country,Preferred Language,Proficiency Level,Main Goal\n")
+    print("Name,Age,Country,Preferred Language,Proficiency Level,Main Goal.\n")
+    print("The 'Preferred Language' can be English or French.")
+    print("Valid 'Proficiency Level' values are: A1, A2, B1, B2, C1, C2.")
+    print("The 'Main Goal' can be chosen among 'Business', 'Citizenship' and 'Art & Literature'.\n")
     
     while True:
         new_data = input("Enter the student's info here:\n").split(",")
@@ -124,6 +129,34 @@ def new_info_validator(info):
     return result
 
 
+def curriculum_calculator():
+    """
+    Calculates the number of students for each available study path.
+    Returns relevant information to the user.
+    """
+    print("You can CALCULATE the number of students for each curriculum here.")
+    print("Please enter one of the following: Business, Citizenship, Art & Literature")
+    queried_curr = input("Please enter the chosen curriculum here:").capitalize()
+    
+    all_curriculum = student_info.col_values(6)
+    business_curr = 0
+    citizenship_curr = 0 
+    art_lit_curr = 0
+
+    for curriculum in all_curriculum:
+        if curriculum == "Business":
+            business_curr += 1
+        elif curriculum == "Citizenship":
+            citizenship_curr += 1
+        elif curriculum == "Art & Literature":
+            art_lit_curr += 1
+    
+    print(business_curr)
+    print(citizenship_curr)
+    print(art_lit_curr)
+
+
+
 def main():
     """
     Run all program functions
@@ -133,6 +166,7 @@ def main():
     input_name()
     add_student()
     new_info_validator()
+    curriculum_calculator()
 
 
 main()
