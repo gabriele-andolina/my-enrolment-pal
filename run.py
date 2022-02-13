@@ -98,17 +98,30 @@ def check_student(stud_name):
 def add_student():
     """
     Allows user to enter new student data.
-    Updates the spreadsheet by populating a new row.
     """
     print("You can ADD your new student's data here.")
     print("Please enter the data separated by commas as follows:")
     print("Name,Age,Country,Preferred Language,Proficiency Level,Main Goal\n")
+    
+    while True:
+        new_data = input("Enter the student's info here:\n").split(",")
+        if new_info_validator(new_data):
+            print("Valid data. Adding new student data to database now...\n")
+            student_info.append_row(new_data)
+            print(f"{new_data[0]} is now registered in your database. Well done!\n")
+        else:
+            print("Invalid input. Please make sure to enter the required six values. Try again.\n")
 
-    new_data = input("Enter the student's info here:\n").split(",")
-    student_info.append_row(new_data)
-    print(f"You have entered {new_data}. Well done!")
-    print_welcome_msg()
-    input_handler()
+
+def new_info_validator(info):
+    """
+    Checks the validity of user input for new student info.
+    Returns a message to provide the user with relevant feedback.
+    """
+    result = True
+    if len(info) < 6 or len(info) > 6:
+        result = False
+    return result
 
 
 def main():
@@ -119,6 +132,7 @@ def main():
     input_handler()
     input_name()
     add_student()
+    new_info_validator()
 
 
 main()
