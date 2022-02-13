@@ -103,7 +103,7 @@ def input_name():
         if name_validator(stud_name):
             print(f"Correct input! Checking {stud_name}'s status now...\n")
             check_student(stud_name)
-            
+            next_step()
         else:
             print("Incorrect input. Student names must be formatted as follows: 'John Smith'.\n")
 
@@ -150,6 +150,7 @@ def add_student():
             print("Valid data. Adding new student data to database now...\n")
             student_info.append_row(new_data)
             print(f"{new_data[0]} is now registered in your database. Well done!\n")
+            next_step()
         else:
             print("Invalid input. Please make sure to enter the required six values. Try again.\n")
 
@@ -172,7 +173,7 @@ def curriculum_calculator():
     """
     print("You can CALCULATE the number of students for each curriculum here.")
     print("Please enter one of the following: Business, Citizenship, Art & Literature")
-    queried_curr = input("Please enter the chosen curriculum here:").capitalize()
+    queried_curr = input("Please enter the chosen curriculum here:\n").capitalize()
     
     all_curriculum = student_info.col_values(6)
     business_curr = 0
@@ -190,10 +191,13 @@ def curriculum_calculator():
     while True:
         if queried_curr == "Business":
             print(f"The number of students for the {queried_curr} curriculum is {business_curr}.")
+            next_step()
         elif queried_curr == "Citizenship":
             print(f"The number of students for the {queried_curr} curriculum is {citizenship_curr}.")
+            next_step()
         elif queried_curr == "Art & Literature":
-            print(f"The number of students for the {queried_curr} curriculum is {art_lit_curr}.") 
+            print(f"The number of students for the {queried_curr} curriculum is {art_lit_curr}.")
+            next_step() 
 
 
 def main():
