@@ -163,8 +163,7 @@ def add_student():
                   "Well done!\n")
             next_step()
         else:
-            print("Invalid input. Please make sure to enter
-                  "the required six values. Try again.\n")
+            print("Invalid input. Please make sure to enter six values.\n")
 
 
 def new_info_validator(info):
