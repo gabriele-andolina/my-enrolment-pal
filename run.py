@@ -184,7 +184,7 @@ def curriculum_calculator():
     """
     print("You can CALCULATE the number of students for each curriculum here.")
     print("Please enter one of the following: "
-          "Business, Citizenship, Art & Literature")
+          "Business, Citizenship, Art & Literature.\n")
     queried_curr = input("Please enter the chosen curriculum "
                          "here:\n").capitalize()
     all_curriculum = student_info.col_values(6)
@@ -200,18 +200,38 @@ def curriculum_calculator():
         elif curriculum == "Art & Literature":
             art_lit_curr += 1
     while True:
+        result = True
+        curriculum_validator(queried_curr)
         if queried_curr == "Business":
             print(f"The number of students for the {queried_curr} "
-                  "curriculum is {business_curr}.")
+                  f"curriculum is {business_curr}.\n")
             next_step()
         elif queried_curr == "Citizenship":
             print(f"The number of students for the {queried_curr} "
-                  "curriculum is {citizenship_curr}.")
+                  f"curriculum is {citizenship_curr}.\n")
             next_step()
         elif queried_curr == "Art & Literature":
             print(f"The number of students for the {queried_curr} "
-                  "curriculum is {art_lit_curr}.")
-            next_step()
+                  f"curriculum is {art_lit_curr}.\n")
+        else:
+            print(f"Sorry, {queried_curr} is not a valid curriculum. "
+                  "Try again.\n")
+            result = False
+        return result
+    next_step()
+
+
+def curriculum_validator(curriculum):
+    """
+    Checks the validity of user input for curriculum_calculator().
+    Returns a message to provide the user with relevant feedback.
+    """
+    result = True
+    if (not curriculum == "Business" and
+            not curriculum == "Citizenship" and
+            not curriculum == "Art & Literature"):
+        result = False
+    return result
 
 
 def main():
@@ -224,6 +244,7 @@ def main():
     add_student()
     new_info_validator()
     curriculum_calculator()
+    curriculum_validator
     next_step()
 
 
