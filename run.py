@@ -58,7 +58,7 @@ def input_handler():
 def next_step():
     """
     Used to move on to the next step as desired by the user.
-    Depending on the user's input, it restarts the application or prints a closing message."
+    It restarts the application or prints a closing message."
     """
     next_menu = """ What would you like to do next?
     1. Enter 1 to CHECK an individual student's complete info.
@@ -105,7 +105,9 @@ def input_name():
             check_student(stud_name)
             next_step()
         else:
-            print("Incorrect input. Student names must be formatted as follows: 'John Smith'.\n")
+            print("Incorrect input. "
+                  "Student names must be formatted as follows: "
+                  "'John Smith'.\n")
 
 
 def name_validator(name):
@@ -136,7 +138,8 @@ def check_student(stud_name):
     stud_name_cell = student_info.find(stud_name)
     complete_stud_info = student_info.row_values(stud_name_cell.row)
     print(f"And here is {stud_name}'s complete info: {complete_stud_info}")
-    print("The above values are: Full Name, Age, Country, Preferred Language, Proficiency Level, Main Goal\n")
+    print("""The above values are: Full Name, Age, Country, Preferred Language,
+    Proficiency Level, Main Goal\n""")
 
 
 def add_student():
@@ -146,18 +149,22 @@ def add_student():
     print("You can ADD your new student's data here.")
     print("Please enter the data separated by commas as follows:")
     print("Name,Age,Country,Preferred Language,Proficiency Level,Main Goal.\n")
-    print("The 'Preferred Language' can be English or French.")
-    print("Valid 'Proficiency Level' values are: A1, A2, B1, B2, C1, C2.")
-    print("The 'Main Goal' can be chosen among 'Business', 'Citizenship' and 'Art & Literature'.\n")
+    print("The 'Preferred Language' can be English, French or Spanish.")
+    print("Valid 'Proficiency Level' values are: "
+          "A1, A2, B1, B2, C1, C2.")
+    print("The 'Main Goal' can be one of the following: "
+          "Business, Citizenship, Art & Literature.\n")
     while True:
         new_data = input("Enter the student's info here:\n").split(",")
         if new_info_validator(new_data):
             print("Valid data. Adding new student data to database now...\n")
             student_info.append_row(new_data)
-            print(f"{new_data[0]} is now registered in your database. Well done!\n")
+            print(f"{new_data[0]} is now registered in your database. "
+                  "Well done!\n")
             next_step()
         else:
-            print("Invalid input. Please make sure to enter the required six values. Try again.\n")
+            print("Invalid input. Please make sure to enter
+                  "the required six values. Try again.\n")
 
 
 def new_info_validator(info):
@@ -177,8 +184,10 @@ def curriculum_calculator():
     Returns relevant information to the user.
     """
     print("You can CALCULATE the number of students for each curriculum here.")
-    print("Please enter one of the following: Business, Citizenship, Art & Literature")
-    queried_curr = input("Please enter the chosen curriculum here:\n").capitalize()
+    print("Please enter one of the following: "
+          "Business, Citizenship, Art & Literature")
+    queried_curr = input("Please enter the chosen curriculum "
+                         "here:\n").capitalize()
     all_curriculum = student_info.col_values(6)
     business_curr = 0
     citizenship_curr = 0
@@ -193,13 +202,16 @@ def curriculum_calculator():
             art_lit_curr += 1
     while True:
         if queried_curr == "Business":
-            print(f"The number of students for the {queried_curr} curriculum is {business_curr}.")
+            print(f"The number of students for the {queried_curr} "
+                  "curriculum is {business_curr}.")
             next_step()
         elif queried_curr == "Citizenship":
-            print(f"The number of students for the {queried_curr} curriculum is {citizenship_curr}.")
+            print(f"The number of students for the {queried_curr} "
+                  "curriculum is {citizenship_curr}.")
             next_step()
         elif queried_curr == "Art & Literature":
-            print(f"The number of students for the {queried_curr} curriculum is {art_lit_curr}.")
+            print(f"The number of students for the {queried_curr} "
+                  "curriculum is {art_lit_curr}.")
             next_step()
 
 
