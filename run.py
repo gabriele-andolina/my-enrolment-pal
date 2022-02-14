@@ -117,7 +117,7 @@ def name_validator(name):
     """
     result = True
     for char in name:
-        if not char.isalpha() and not char.isspace():
+        if not char.isalpha() and not char.isspace() and not char == "'":
             result = False
     return result
 
