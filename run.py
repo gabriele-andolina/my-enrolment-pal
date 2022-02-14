@@ -138,8 +138,8 @@ def check_student(stud_name):
     stud_name_cell = student_info.find(stud_name)
     complete_stud_info = student_info.row_values(stud_name_cell.row)
     print(f"And here is {stud_name}'s complete info: {complete_stud_info}")
-    print("""The above values are: Full Name, Age, Country, Preferred Language,
-    Proficiency Level, Main Goal\n""")
+    print("The above values are: Full Name, Age, Country, Preferred Language, "
+          "Proficiency Level, Main Goal\n")
 
 
 def add_student():
