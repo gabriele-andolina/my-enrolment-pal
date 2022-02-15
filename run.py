@@ -244,7 +244,7 @@ def main():
     add_student()
     new_info_validator()
     curriculum_calculator()
-    curriculum_validator
+    curriculum_validator()
     next_step()
 
 
