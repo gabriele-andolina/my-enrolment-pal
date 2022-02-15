@@ -38,6 +38,7 @@ def input_handler():
     Handles user input
     """
     while True:
+        user_input = ""
         try:
             user_input = int(input("Please enter your choice here:\n"))
             if user_input > 0 and user_input < 4:
