@@ -145,10 +145,9 @@ def check_student(stud_name):
 
 def add_student():
     """
-    Allows user to enter new student data.
+    Allows the user to enter new student data.
     """
     print("You can ADD your new student's data here.")
-    print("Please enter the data separated by commas as follows:")
     print("Name,Age,Country,Preferred Language,Proficiency Level,Main Goal.\n")
     print("The 'Preferred Language' can be English, French or Spanish.")
     print("Valid 'Proficiency Level' values are: "
@@ -202,7 +201,10 @@ def curriculum_calculator():
             art_lit_curr += 1
     while True:
         result = True
+        queried_curr = ""
         curriculum_validator(queried_curr)
+        queried_curr = input("Please enter the chosen curriculum "
+                             "here:\n").capitalize()
         if queried_curr == "Business":
             print(f"The number of students for the {queried_curr} "
                   f"curriculum is {business_curr}.\n")
@@ -242,11 +244,6 @@ def main():
     print_welcome_msg()
     input_handler()
     input_name()
-    add_student()
-    new_info_validator()
-    curriculum_calculator()
-    curriculum_validator()
-    next_step()
 
 
 main()

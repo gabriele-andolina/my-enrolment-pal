@@ -10,11 +10,11 @@ The goal of the app is to provide an Italian language school with a tailored dig
 
 ## **1. Developer's Goals**
 The developer who created the app wants to help an Italian language school manage their students' data. He has been hired to create a program that might facilitate day-to-day operations such as:   
-- the checking of data;  
+- the checking of existing data;  
 - the update of the existing database with incoming students' data;  
 - the retrieval of information about the number of students for each tailored study path. 
 ## **2. User Goals (UX)**
-The user is either the principal or a member of the staff of an Italian language school. They want a straightforward way to engage with their students' data, be it to simply check the status of enroled students or to add new ones. One important feature of this school is the offer of a curriculum tailored on the student's needs. In fact, although all students learn the same contents in the first part of the course, they can chose three different study paths during the last portion of their studies. The three choices offered are Business, Citizenship and Art & Literature.  
+The user is either the principal or a member of the staff of an Italian language school. They want a straightforward way to engage with their students' data, be it to simply check the status of enroled students or to add new ones. One important feature of this school is the offer of a curriculum tailored on the student's needs. In fact, although all students learn the same contents in the first part of the course, they can chose three different study paths during the last one. The three choices offered are Business, Citizenship and Art & Literature.  
 The school management keep their data in a spreadsheet that so far has been checked and updated manually. A faster and easier tool is now desired, which will simplify the above-mentioned tasks by allowing the users to enter the needed data in a single line.
 
 ## **3. Features**
@@ -86,27 +86,29 @@ An upgraded version of the initial app menu. It offers the possibility of contin
 An exit message that confirm the exit from the program and thanks the users for using My Enrolment Pal.
 
 ### 3.2 *Features left to implement*
-* *Something else*
-   * 
-* *Something else*
-   * An additional page could host separate informative sheets about herbs, each one describing some important qualities of each herb, as well as some interesting anecdote or historical fact. This feature will expand the educational mission of the two herbalists.
+* *A more thorough form of input validation for new data*
+   * Within the second functionality available within the program, that is, the ADD part, it can be observed that the only type of validation currently available regards the number of required values. This can and needs to be improved by adding further checks to verify whether the input matches the data type required.
+* *Additional functionality*
+   * More options can be made available to the user in order to make My Enrolment Pal the main data management software of the school. One of these could be a separate part of the database dedicated to the teachers currently working for the school, which would include relevant information to be used for a proper teacher-class pairing.
 
 ## **4. Testing**
 ### 4.1 *Validator Testing*
 * PEP8
-   * The final version of the code is free of errors when passed through the official [W3C Validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fgabriele-andolina.github.io%2Fherbalist-counter%2F).
-   UPDATE
+   * The final version of the code is free of errors when passed through the PEP8 validator.
 
-   ![W3C HTML Validation](assets/documentation/html-validation.png)
+   ![PEP8 Validation](assets/docs/code_validation.png)
 
-### 4.7 *Testing User Stories*
-* First-time user:
-   * UPDATE
-* Returning user:
-   * UPDATE
+### 4.2 *Fixed Bugs*
+* In the first funcionality of the app, an UnboundLocalError would show if special keys were pressed (such as Enter). This was fixed with the addition of an empty user_input within the input_handler function, which resets said value to an empty string. 
 
-## 5. **Deployment** UPDATE
-The site has been deployed to GitHub Pages. The steps to deploy are as follows:
+   ![Unbound Local Error](assets/docs/unbound_local_error.png)
+
+It is now possible to enter special characters (as it might happen with an incorrect user input) and see a prompt requiring values 1 to 3 alone.
+
+   ![Unbound Local Error Fixed](assets/docs/unbound_fixed.png)
+
+## 5. **Deployment** 
+The site has been deployed to Heroku. The steps to deploy are as follows:
    * In the 'herbalist-counter' GitHub repository, navigate to the 'Settings' page.
    * Within the 'Settings' page, open the GitHub Pages dedicated section.
    * In the 'Source' section, you can find a 'Branch' drop-down menu. Select 'main' and save the changes.
@@ -117,39 +119,16 @@ The site has been deployed to GitHub Pages. The steps to deploy are as follows:
 * Languages
    * **Python 3**
 * Websites and Softwares UPDATE
-   * **Balsamiq**: used to create the website's wireframes (located in the 'documentation' folder)
-   * **Font Awesome**: FA's icons were used to create the social media links found in the website's footer.
    * **Git**: Git was used for version control through the Gitpod terminal, to add, commit and push the project's updates to GitHub.
-   * **GitHub**: GitHub, together with GitHub Pages, has been used to store the project's repository and deploy the website.
-   * **Google Fonts**: Google Fonts has been used to import the two fonts in use on the website, namely the "Great Vibes" and "Montserrat" ones.
-   * **Compresss.com**: This website has been instrumental in reducing the size of the images employed in the project, with the positive result of an increased performance in the final version.
-   * **ColorSpace**: The color palette used in the project has been created on this website.
+   * **GitHub**: GitHub, together with GitHub Pages, has been used to store the project's repository.
 
-## 7. **Credits** UPDATE
+## 7. **Credits** 
 ### 7.1 *Code*
-All code (with the exception of the "Where to find us" section's iframe, credited below) has been personally written, however I referred to the documentation throughout the entire development process.
+All code has been written by me personally.
 ### 7.2 *Inspiration*
-Some online resources have been very helpful in the code-writing process. Among these is the 'Love Running Walkthrough Project', which has proven beneficial to lay down a sequential path for the development of a website. I have also availed myself of additional online resources such as Stack Overflow and CSS-tricks.com, albeit never copying code.
-### 7.3 *IFrame*
-The IFrame within the 'Where to find us' section has been created and imported from the Google Maps Platform (within the Google Cloud Platform and accessible here: https://cloud.google.com/)
-### 7.4 *Content*
-The entirety of the content found on the website has been created by me personally. The specific herbal mixtures written of in the 'Herbs' section ('Our products' page) come from a tiny booklet with some herbal tea suggestions given to me by the herbalist I usually visit for my herbal purchases.
-### 7.5 *Media*
-All the images displayed on the website have been downloaded from Unsplash.com. Here follows the list of the photographers whose work has made this project possible:
-   * *Hero image* by Swapnll Dwivedi 
-   * *Our story* photo by Peter Conlan
-   * *The Counter* photo by Matt Briney 
-   * *Our Philosophy* photo by NeONBRAND
-   * *Herbs* photo by Katherine Hanlon
-   * *Tea* photo by Desi Dermz. 
-   * *Soaps and perfumes* photo by Paul Gaudriault 
-   * *Herbal Friday* photo by Annie Spratt 
-   * *Tea ceremony* photo by 五玄土
-   * *Where to find us* photo by Mike Petrucci
-   * *Get in touch* photo by Stanley Dai
-   * *Thank you* photo by Towfiqu barbhuiya
-### 7.6 *Acknowledgments* UPDATE
-A special thank you to my mentor, Mr. Can Sucullu, who has greatly helped me and wisely instructed me throughout the entire project.
+The inspiration for this project came from the Love Sandwiches walkthrough one. Going through it has allowed me to think of a practical way to apply what I have been learning about Python. Working in a language school myself, I realised that a program similar to the Love Sandwiches app could be very useful for the staff managing the school and started thinking about the features I could include.
+### 7.3 *Acknowledgments* 
+This project would have never made it to completion without the guidance, help and encouragement of my mentor, Mr. Richard Wells. As a returning student, getting back into coding has come with its challenges and frustrations. However, I am truly grateful for and to Mr. Wells for constantly inspiring and showing me how to improve, both in terms of technical skills and personal approach to coding. Even though we've known each other for slightly more than a month now, his help is truly invaluable.
 
 
 
