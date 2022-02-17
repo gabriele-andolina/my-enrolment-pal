@@ -85,6 +85,11 @@ An upgraded version of the initial app menu. It offers the possibility of contin
 ![Program exit message](assets/docs/exit_program.png)
 An exit message that confirm the exit from the program and thanks the users for using My Enrolment Pal.
 
+* Google Spreadsheet
+
+![Google spreadsheet](assets/docs/spreadsheet.png)
+The spreadsheet that connects with the app. Names on it can be used to test the CHECK functionality.
+
 ### 3.2 *Features left to implement*
 * *A more thorough form of input validation for new data*
    * Within the second functionality available within the program, that is, the ADD part, it can be observed that the only type of validation currently available regards the number of required values. This can and needs to be improved by adding further checks to verify whether the input matches the data type required.
