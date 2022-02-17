@@ -126,7 +126,7 @@ The site has been deployed to Heroku. The steps to deploy are as follows:
    * First, set the Config Vars by adding the info located in the creds.json file in your repo (this was needed as the spreadsheet used by the app is hosted on my Google Drive). It is also necessary to set the PORT to 8000 to avoid issues with deployment. 
    * Then, add the python and node.js buildpacks exactly in this order.
    * After finishing with the settings, click the "Deploy" button and and connect your GitHub repository to the Heroku app.
-   * Enable "Automatic Deploys" and hit the "Deploy Branch" button, which will start the deploying process. When this has been completed, a message saying "Your app was succesfully deployed" will show, paired with a "View" button that leads to the app. 
+   * Enable "Automatic Deploys" and hit the "Deploy Branch" button, which will start the deployment process. When this has been completed, a message saying "Your app was succesfully deployed" will show, paired with a "View" button that leads to the app. 
 
 ## 6. **Technologies Used**
 * Languages
@@ -143,8 +143,8 @@ All code has been written by me personally.
 ### 7.2 *Inspiration*
 The inspiration for this project came from the Love Sandwiches walkthrough one. Going through it has allowed me to think of a practical way to apply what I have been learning about Python. Working in a language school myself, I realised that a program similar to the Love Sandwiches app could be very useful for the staff managing the school and started thinking about the features I could include.
 ### 7.3 *Acknowledgments* 
-This project would have never made it to completion without the guidance, help and encouragement of my mentor, Mr. Richard Wells. As a returning student, getting back into coding has come with its challenges and frustrations. However, I am truly grateful for and to Mr. Wells for constantly inspiring and showing me how to improve, both in terms of technical skills and personal approach to coding. Even though we've known each other for slightly more than a month now, his help is truly invaluable.  
-I also wish to thank Mr. Declan O'Sullivan, my fellow student and Lead of the PP3 channel on Slack, for kindly and very promptly helping me get unstuck when I couldn't get started with my project. Thanks to him, I was able to understand where the issue was and therefore got unstuck.
+This project would have never made it to completion without the guidance, help and encouragement of my mentor, Mr. Richard Wells. As a returning student, getting back into coding has come with its challenges and frustrations. However, I am truly grateful for and to Mr. Wells for constantly inspiring and showing me how to improve, both in terms of technical skills and personal approach to coding. Even though we've known each other for slightly more than a month now, his help has truly proved to be invaluable.  
+I also wish to thank Mr. Declan O'Sullivan, my fellow student and Lead of the PP3 channel on Slack, for kindly and very promptly helping me get unstuck when I couldn't get started with my project. Thanks to him, I was able to understand where the issue was and get unstuck.
 
 
 
