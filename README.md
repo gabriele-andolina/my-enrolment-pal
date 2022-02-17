@@ -105,30 +105,41 @@ An exit message that confirm the exit from the program and thanks the users for 
 
 It is now possible to enter special characters (as it might happen with an incorrect user input) and see a prompt requiring values 1 to 3 alone.
 
-   ![Unbound Local Error Fixed](assets/docs/unbound_fixed.png)
+   ![Unbound Local Error fixed](assets/docs/unbound_fixed.png)
+
+### 4.3 *Remaining Bugs*
+* There remains a bug in the program, showing if the user checks the number of students for the Art & Literature curriculum. In this case, the program currently does not recognise this curriculum as a valid one. 
+
+   ![Art and literature bug](assets/docs/unbound_local_error.png)
 
 ## 5. **Deployment** 
 The site has been deployed to Heroku. The steps to deploy are as follows:
-   * In the 'herbalist-counter' GitHub repository, navigate to the 'Settings' page.
-   * Within the 'Settings' page, open the GitHub Pages dedicated section.
-   * In the 'Source' section, you can find a 'Branch' drop-down menu. Select 'main' and save the changes.
-   * When the site has been successfully deployed, a message of 'Your site is published at https://...' will be displayed. (Before that, a message of 'Your site is ready to be published at https://...' will pop up during the upload.)
-   * The website is now accessible through this link: https://gabriele-andolina.github.io/herbalist-counter/.
+   * Create a personal account and login.
+   * From the Dashboard, click "New", then "Create New App.
+   * After choosing a unique name for the application and the region of the world the developer is located in, click the "Create app" button.
+   * On the next page, hit the "Settings" button.
+   * First, set the Config Vars by adding the info located in the creds.json file in your repo (this was needed as the spreadsheet used by the app is hosted on my Google Drive). It is also necessary to set the PORT to 8000 to avoid issues with deployment. 
+   * Then, add the python and node.js buildpacks exactly in this order.
+   * After finishing with the settings, click the "Deploy" button and and connect your GitHub repository to the Heroku app.
+   * Enable "Automatic Deploys" and hit the "Deploy Branch" button, which will start the deploying process. When this has been completed, a message saying "Your app was succesfully deployed" will show, paired with a "View" button that leads to the app. 
 
 ## 6. **Technologies Used**
 * Languages
    * **Python 3**
-* Websites and Softwares UPDATE
+* Websites and Softwares
+   * **GoogleSheets**: The spreadsheet containing all of the student data was created with Google Sheets.
    * **Git**: Git was used for version control through the Gitpod terminal, to add, commit and push the project's updates to GitHub.
    * **GitHub**: GitHub, together with GitHub Pages, has been used to store the project's repository.
-
+   * **StackOverflow**: Stack Overflow has been used multiple times to solve issues with my code..
+   
 ## 7. **Credits** 
 ### 7.1 *Code*
 All code has been written by me personally.
 ### 7.2 *Inspiration*
 The inspiration for this project came from the Love Sandwiches walkthrough one. Going through it has allowed me to think of a practical way to apply what I have been learning about Python. Working in a language school myself, I realised that a program similar to the Love Sandwiches app could be very useful for the staff managing the school and started thinking about the features I could include.
 ### 7.3 *Acknowledgments* 
-This project would have never made it to completion without the guidance, help and encouragement of my mentor, Mr. Richard Wells. As a returning student, getting back into coding has come with its challenges and frustrations. However, I am truly grateful for and to Mr. Wells for constantly inspiring and showing me how to improve, both in terms of technical skills and personal approach to coding. Even though we've known each other for slightly more than a month now, his help is truly invaluable.
+This project would have never made it to completion without the guidance, help and encouragement of my mentor, Mr. Richard Wells. As a returning student, getting back into coding has come with its challenges and frustrations. However, I am truly grateful for and to Mr. Wells for constantly inspiring and showing me how to improve, both in terms of technical skills and personal approach to coding. Even though we've known each other for slightly more than a month now, his help is truly invaluable.  
+I also wish to thank Mr. Declan O'Sullivan, my fellow student and Lead of the PP3 channel on Slack, for kindly and very promptly helping me get unstuck when I couldn't get started with my project. Thanks to him, I was able to understand where the issue was and therefore got unstuck.
 
 
 
