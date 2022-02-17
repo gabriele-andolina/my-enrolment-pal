@@ -110,7 +110,7 @@ It is now possible to enter special characters (as it might happen with an incor
 ### 4.3 *Remaining Bugs*
 * There remains a bug in the program, showing if the user checks the number of students for the Art & Literature curriculum. In this case, the program currently does not recognise this curriculum as a valid one. 
 
-   ![Art and literature bug](assets/docs/unbound_local_error.png)
+   ![Art and literature bug](assets/docs/art_lit_bug.png)
 
 ## 5. **Deployment** 
 The site has been deployed to Heroku. The steps to deploy are as follows:
